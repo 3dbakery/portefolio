@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <link rel="icon" type="image/png" href="assets/logo-3d-bakery.png" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>3D Bakery | Portefólio</title>
+  <meta name="description" content="Catálogo online de produtos personalizados da 3D Bakery." />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="navbar">
+      <a class="brand" href="index.html">
+        <img class="brand-logo" src="assets/logo-3d-bakery.png" alt="Logotipo 3D Bakery" />
+        <div class="brand-text">
+          <strong>3D Bakery</strong>
+          <span>Camada por Camada</span>
+        </div>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html#como-funciona">Como funciona</a>
+        <a href="index.html#catalogo">Catálogo</a>
+        <a href="index.html#personalizado">Peças Personalizadas</a>
+      </div>
+
+      <a class="nav-button" href="index.html#contacto">Contactar</a>
+    </nav>
+
+    <section class="hero-content">
+      <div class="hero-copy">
+        <h1>Produtos únicos, feitos com perfeção.</h1>
+        <p class="hero-text">
+          Porta-chaves, missangas, conjuntos, decoração e acessórios personalizados.
+          Escolhe uma categoria para veres os produtos disponíveis.
+        </p>
+
+        <div class="hero-actions">
+          <a class="primary-button" href="#catalogo">Ver catálogo</a>
+          <a class="secondary-button" href="#personalizado">Fazer pedido personalizado</a>
+        </div>
+      </div>
+
+      <aside class="hero-card hero-feature-product">
+        <div class="hero-feature-image">
+          <img src="assets/feature-conjunto.png" alt="Conjunto personalizado com missangas" />
+        </div>
+
+        <div class="hero-feature-content">
+          <span>Em destaque</span>
+          <h2>Conjuntos personalizados</h2>
+          <p>
+            Combina porta-chaves com missangas à tua escolha para criares uma peça única.
+          </p>
+
+          <div class="hero-feature-meta">
+            <strong>Desde 4,00€</strong>
+          </div>
+
+          <a class="hero-card-button" href="categoria.html?categoria=conjuntos">
+            Personaliza o teu conjunto
+          </a>
+        </div>
+      </aside>
+    </section>
+  </header>
+
+  <main>
+    <section id="como-funciona" class="section intro">
+      <p class="eyebrow">Como funciona</p>
+      <h2>Fazer uma encomenda nunca foi tão fácil.</h2>
+
+      <div class="steps">
+        <article>
+          <span>01</span>
+          <h3>Vê e escolhe o produto</h3>
+          <p>Cada produto tem preço, descrição, tamanho, opções e imagens.</p>
+        </article>
+
+        <article>
+          <span>02</span>
+          <h3>Recolhe o identificador</h3>
+          <p>Cada produto tem um identificador único que podes usar para confirmar a tua escolha.</p>
+        </article>
+
+        <article>
+          <span>03</span>
+          <h3>Encomenda</h3>
+          <p>Envia mensagem com o identificador pretendido, quantidade e os detalhes de personalização (caso se aplique).</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="catalogo" class="section categories-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Catálogo</p>
+          <h2>Categorias</h2>
+        </div>
+      </div>
+
+      <div class="carousel-shell">
+        <button class="carousel-control carousel-prev" aria-label="Categoria anterior">‹</button>
+        <div id="categoryCarousel" class="category-carousel" aria-label="Carrossel de categorias"></div>
+        <button class="carousel-control carousel-next" aria-label="Categoria seguinte">›</button>
+      </div>
+    </section>
+
+    <section id="personalizado" class="section custom-order">
+      <div>
+        <p class="eyebrow">Produto personalizado</p>
+        <h2>Tens uma ideia diferente?</h2>
+        <p>
+          Também fazemos peças personalizadas. Envia uma referência, desenho, nome ou descrição para receberes uma proposta aperfeiçoada às tuas necessidades.
+        </p>
+      </div>
+
+      <a class="primary-button" href="#contacto">Pedir orçamento</a>
+    </section>
+
+    <section id="contacto" class="section contact">
+      <p class="eyebrow">Contacto</p>
+      <h2>Faz o teu pedido</h2>
+
+      <div class="contact-grid">
+        <a href="https://wa.me/351914263009" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="mailto:3dbake.house@gmail.com">Email</a>
+        <a href="https://www.instagram.com/3d.bakery_" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@3d.bakery_" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://linktr.ee/3d.bakery" target="_blank" rel="noopener">Lintree</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> 3D Bakery. Catálogo online.</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="home.js"></script>
+</body>
+</html>

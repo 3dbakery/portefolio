@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <link rel="icon" type="image/png" href="assets/logo-3d-bakery.png" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Categoria | 3D Bakery</title>
+  <meta name="description" content="Produtos por categoria da 3D Bakery." />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="page-header">
+    <nav class="navbar">
+      <a class="brand" href="index.html">
+        <img class="brand-logo" src="assets/logo-3d-bakery.png" alt="Logotipo 3D Bakery" />
+        <div class="brand-text">
+          <strong>3D Bakery</strong>
+          <span>Camada por Camada</span>
+        </div>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html#como-funciona">Como funciona</a>
+        <a href="index.html#catalogo">Catálogo</a>
+        <a href="index.html#personalizado">Peças Personalizadas</a>
+      </div>
+
+      <a class="nav-button" href="index.html#contacto">Contactar</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section products-section">
+      <a class="back-link" href="index.html#catalogo">← Voltar às categorias</a>
+
+      <div class="section-heading category-page-heading">
+        <div>
+          <p class="eyebrow">Categoria</p>
+          <h1 id="categoryTitle" class="page-title">Produtos</h1>
+          <p id="categoryDescription" class="page-description"></p>
+        </div>
+
+        <div class="filters">
+          <input id="searchInput" type="search" placeholder="Pesquisar" />
+        </div>
+      </div>
+
+      <div id="categorySelector" class="category-row" aria-label="Selecionar categoria"></div>
+
+      <div id="productGrid" class="product-grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> 3D Bakery. Catálogo online.</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="category.js"></script>
+</body>
+</html>

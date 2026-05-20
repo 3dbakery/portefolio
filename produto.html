@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <link rel="icon" type="image/png" href="assets/logo-3d-bakery.png" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Produto | 3D Bakery</title>
+  <meta name="description" content="Detalhes de produto da 3D Bakery." />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="page-header">
+    <nav class="navbar">
+      <a class="brand" href="index.html">
+        <img class="brand-logo" src="assets/logo-3d-bakery.png" alt="Logotipo 3D Bakery" />
+        <div class="brand-text">
+          <strong>3D Bakery</strong>
+          <span>Camada por Camada</span>
+        </div>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html#como-funciona">Como funciona</a>
+        <a href="index.html#catalogo">Catálogo</a>
+        <a href="index.html#personalizado">Peças Personalizadas</a>
+      </div>
+
+      <a class="nav-button" href="index.html#contacto">Contactar</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section product-detail-section">
+      <a id="backToCategory" class="back-link" href="index.html#catalogo">← Voltar</a>
+
+      <div id="productDetail" class="product-detail"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> 3D Bakery. Catálogo online.</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="product.js"></script>
+</body>
+</html>
