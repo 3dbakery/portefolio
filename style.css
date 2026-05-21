@@ -789,8 +789,22 @@ footer {
 }
 
 @media (max-width: 1050px) {
+  .navbar {
+    flex-wrap: wrap;
+  }
+
   .nav-links {
-    display: none;
+    display: flex;
+    order: 3;
+    flex: 0 0 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  .nav-links a {
+    font-size: 0.85rem;
   }
 }
 
@@ -1097,4 +1111,39 @@ footer {
   aspect-ratio: 3 / 4;
   height: auto;
   min-height: unset;
+}
+
+@media (max-width: 760px) {
+  .about-section {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .about-card {
+    grid-template-columns: 1fr;
+    padding: 26px;
+    gap: 24px;
+  }
+
+  .about-content h2 {
+    font-size: 2.2rem;
+    line-height: 1;
+  }
+
+  .about-content p {
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+
+  .about-highlights {
+    gap: 10px;
+  }
+
+  .about-highlights article {
+    padding: 15px;
+  }
+
+  .about-highlights span {
+    font-size: 0.92rem;
+  }
 }
