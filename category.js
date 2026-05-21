@@ -59,8 +59,8 @@ function renderProducts() {
         <p class="product-description">${product.description}</p>
 
         <div class="product-meta">
-          <span>Tamanho: ${product.size}</span>
-          <span>${product.options}</span>
+          ${product.size ? `<span>Tamanho: ${product.size}</span>` : ""}
+          ${product.options ? `<span>${product.options}</span>` : ""}
         </div>
 
         <div class="product-bottom">

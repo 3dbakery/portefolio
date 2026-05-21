@@ -5,16 +5,29 @@ const detail = document.getElementById("productDetail");
 const backToCategory = document.getElementById("backToCategory");
 
 function renderGallery(product) {
-  if (product.images && product.images.length > 0) {
+  const media = product.media || (product.images || []).map((image) => ({
+    type: "image",
+    src: image
+  }));
+
+  if (media.length > 0) {
     return `
-      <div class="gallery-main">
-        <img id="mainProductImage" src="${product.images[0]}" alt="${product.name}" />
+      <div class="gallery-main gallery-with-arrows" id="galleryMain">
+        <button class="gallery-arrow gallery-arrow-left" id="prevMedia" aria-label="Anterior">‹</button>
+
+        <div id="mainMedia" class="main-media"></div>
+
+        <button class="gallery-arrow gallery-arrow-right" id="nextMedia" aria-label="Seguinte">›</button>
       </div>
 
       <div class="gallery-thumbs">
-        ${product.images.map((image, index) => `
-          <button class="thumb-button ${index === 0 ? "active" : ""}" data-image="${image}">
-            <img src="${image}" alt="${product.name} ${index + 1}" />
+        ${media.map((item, index) => `
+          <button class="thumb-button ${index === 0 ? "active" : ""}" data-index="${index}">
+            ${
+              item.type === "video"
+                ? `<span class="video-thumb">▶</span>`
+                : `<img src="${item.src}" alt="${product.name} ${index + 1}" />`
+            }
           </button>
         `).join("")}
       </div>
@@ -65,26 +78,84 @@ function initProductPage() {
           <span>Tamanho</span>
           <strong>${product.size}</strong>
         </div>
-        <div>
-          <span>Opções</span>
-          <strong>${product.options}</strong>
-        </div>
+        ${product.options ? `
+          <div>
+            <span>Detalhes</span>
+            <strong>${product.options}</strong>
+          </div>
+        ` : ""}
       </div>
 
       <a class="primary-button" href="index.html#contacto">Pedir este produto</a>
     </article>
   `;
 
-  const mainImage = document.getElementById("mainProductImage");
-  const thumbs = document.querySelectorAll(".thumb-button");
+  const media = product.media || (product.images || []).map((image) => ({
+  type: "image",
+  src: image
+}));
+
+const mainMedia = document.getElementById("mainMedia");
+const thumbs = document.querySelectorAll(".thumb-button");
+const prevMedia = document.getElementById("prevMedia");
+const nextMedia = document.getElementById("nextMedia");
+
+let currentMediaIndex = 0;
+
+function updateGallery(index) {
+  if (!media.length || !mainMedia) return;
+
+  currentMediaIndex = index;
+
+  if (currentMediaIndex < 0) {
+    currentMediaIndex = media.length - 1;
+  }
+
+  if (currentMediaIndex >= media.length) {
+    currentMediaIndex = 0;
+  }
+
+  const item = media[currentMediaIndex];
+
+  if (item.type === "video") {
+    mainMedia.innerHTML = `
+      <video controls muted playsinline autoplay loop>
+        <source src="${item.src}" type="video/mp4">
+        O teu browser não suporta vídeo.
+      </video>
+    `;
+  } else {
+    mainMedia.innerHTML = `
+      <img src="${item.src}" alt="${product.name}" />
+    `;
+  }
 
   thumbs.forEach((thumb) => {
-    thumb.addEventListener("click", () => {
-      thumbs.forEach((item) => item.classList.remove("active"));
+    thumb.classList.remove("active");
+
+    if (Number(thumb.dataset.index) === currentMediaIndex) {
       thumb.classList.add("active");
-      mainImage.src = thumb.dataset.image;
-    });
+    }
   });
+}
+
+thumbs.forEach((thumb) => {
+  thumb.addEventListener("click", () => {
+    updateGallery(Number(thumb.dataset.index));
+  });
+});
+
+if (prevMedia && nextMedia) {
+  prevMedia.addEventListener("click", () => {
+    updateGallery(currentMediaIndex - 1);
+  });
+
+  nextMedia.addEventListener("click", () => {
+    updateGallery(currentMediaIndex + 1);
+  });
+}
+
+updateGallery(0);
 }
 
 initProductPage();
